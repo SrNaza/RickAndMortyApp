@@ -1,0 +1,2 @@
+# RickAndMortyApp
+Zara Tech Tests
