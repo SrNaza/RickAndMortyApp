@@ -5,7 +5,9 @@ Patron arquitectonico utilizado : VIPER
 
 El ejercicio consta principalmente de 3 pantallas :
  1 - Vista principal con campo de busqueda HomeViewController.swift
+
  2 - Listado de los Personajes con un collectionView ListViewController.swift
+
  3 - Detalle de un Personaje seleccionado DetailViewController.swift
    * DetailViewController es una vista hecha con NS
  
