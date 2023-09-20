@@ -3,7 +3,8 @@ Zara Tech Tests / Nazareth Villalba
 
 Patron arquitectonico utilizado : VIPER
 
-El ejercicio consta principalmente de 3 pantallas :
+El ejercicio consta principalmente de 3 pantallas:
+
  1 - Vista principal con campo de busqueda HomeViewController.swift
 
  2 - Listado de los Personajes con un collectionView ListViewController.swift
