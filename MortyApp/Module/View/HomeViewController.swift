@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  MortyApp
 //
-//  Created by Eduardo Marquez on 19/09/23.
+//  Created by Nazareth Villalba on 19/09/23.
 //
 
 import UIKit
@@ -32,7 +32,7 @@ final class HomeViewController: UIViewController {
     
     @IBOutlet weak var seeAllCharacterButton: UIButton!
     
-    private var presenter: HomeFlowPresenterProtocol?
+    var presenter: HomeFlowPresenterProtocol?
     private let disposeBag = DisposeBag()
     
     init() {
@@ -47,9 +47,8 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let interactor = HomeFlowInteractor()
-        let router = HomeFlowRouter(baseController: self)
+        let interactor: HomeFlowInteractorProtocol = HomeFlowInteractor()
+        let router: HomeFlowRouterProtocol = HomeFlowRouter(baseController: self)
         presenter = HomeFlowPresenter(interactor: interactor, router: router)
     }
     
@@ -83,13 +82,11 @@ extension HomeViewController {
     
     func setup() {
         searchBardField.text = ""
-//        searchBardField.font = setFont(of: .bold, family: .Mono, and: 15) TODO NZ
         searchBardField.textColor = .black
         searchBardField.placeholder = "Search Rick and Morty Character"
         searchBardField.setPlaceHolderColor()
         
         titleLabel.text = "Rick & Morty App 🫡"
-//        titleLabel.font = setFont(of: .bold, family: .Mono, and: 15)
         titleLabel.textColor = .black
         
         seeAllCharacterButton.backgroundColor = UIColor.white

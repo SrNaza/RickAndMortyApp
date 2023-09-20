@@ -2,35 +2,98 @@
 //  MortyAppTests.swift
 //  MortyAppTests
 //
-//  Created by Eduardo Marquez on 19/09/23.
+//  Created by Nazareth Villalba on 19/09/23.
 //
 
 import XCTest
+import RxSwift
+import RxCocoa
 @testable import MortyApp
 
 final class MortyAppTests: XCTestCase {
 
+    var homePresenter: HomeFlowPresenterProtocol!
+    var urlSession: URLSession!
+    var disposeBag = DisposeBag()
+
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        homePresenter = HomeFlowPresenter(interactor: HomeFlowInteractor(), router: HomeFlowRouter(baseController: UIViewController()))
+        urlSession = URLSession(configuration: .default)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        homePresenter = nil
+        urlSession = nil
+        try super.tearDownWithError()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testSeacrhTextFieldIsEmpty() {
+        let transitionExpectation = expectation(description: "Should get search done")
+        
+        let characterInfo = homePresenter?.getCharacter(characterToSearch: "rick")
+            .asObservable()
+        
+        characterInfo?.asObservable()
+            .take(1)
+            .subscribe(onNext: { info in
+                XCTAssertEqual(!info.results.isEmpty, true, "Textfield shouldn't be empty")
+                transitionExpectation.fulfill()
+        }).disposed(by: disposeBag)
+        
+        waitForExpectations(timeout: 5) {
+            print($0?.localizedDescription ?? "Error waiting expectation")
         }
     }
-
+    
+    func testNotifyTransition() {
+        let transitionExpectation = expectation(description: "should transation done")
+        
+        let characterInfo = homePresenter?.getCharacter(characterToSearch: "rick")
+            .asObservable()
+        
+        characterInfo?.asObservable()
+            .take(1)
+            .subscribe(onNext: { [weak self] info in
+                guard let self = self, let infoResult = info.results.first else { return }
+                
+                self.homePresenter.notifyTransition(transition: .showItemsSearchDetail(item: infoResult), completion: {
+                    print("Trying to show something")
+                })
+                
+                transitionExpectation.fulfill()
+        }).disposed(by: disposeBag)
+    
+        
+        waitForExpectations(timeout: 5) {
+            print($0?.localizedDescription ?? "Error waiting expectation")
+        }
+    }
+    
+    func testValidApiCallGetsHTTPStatusCode200() throws {
+      
+      let urlString = "https://rickandmortyapi.com/api/character"
+        
+      let url = URL(string: urlString)!
+      
+      let promise = expectation(description: "Status code: 200")
+      
+      let dataTask = urlSession.dataTask(with: url) { _, response, error in
+        
+        if let error = error {
+          XCTFail("Error: \(error.localizedDescription)")
+          return
+        } else if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+          if statusCode == 200 {
+            
+            promise.fulfill()
+          } else {
+            XCTFail("Status code: \(statusCode)")
+          }
+        }
+      }
+      dataTask.resume()
+      
+      wait(for: [promise], timeout: 5)
+    }
 }

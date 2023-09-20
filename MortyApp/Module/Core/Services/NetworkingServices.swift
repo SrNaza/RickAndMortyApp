@@ -2,18 +2,12 @@
 //  NetworkingServices.swift
 //  MortyApp
 //
-//  Created by Eduardo Marquez on 19/09/23.
+//  Created by Nazareth Villalba on 19/09/23.
 //
 
 import ObjectMapper
 
 let baseURL = "https://rickandmortyapi.com/api"
-
-enum typeOfSearch: String {
-    case mla = "MLA" // todo ver esto
-    case mco = "MCO"
-    case mar = "MAR"
-}
 
 class ApiError : NSObject, Mappable {
     
@@ -46,4 +40,3 @@ public class Api {
     
     let urlAllCharacters = "\(baseURL)/character"
 }
-

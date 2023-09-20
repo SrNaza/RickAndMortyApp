@@ -2,7 +2,7 @@
 //  CustomNavigationControllers.swift
 //  MortyApp
 //
-//  Created by Eduardo Marquez on 19/09/23.
+//  Created by Nazareth Villalba on 19/09/23.
 //
 
 import UIKit
@@ -38,15 +38,13 @@ class CustomNavigationControllers: UINavigationController {
     
     func setTitleColor(color: UIColor) {
         navigationBar.titleTextAttributes = [
-            .foregroundColor: color,
-            .font: setFont(of: .medium, and: 15)
+            .foregroundColor: color
         ]
     }
     
     private func setupTitleFont() {
         navigationBar.titleTextAttributes = [
-            .foregroundColor: UIColor.black,
-            .font: setFont(of: .medium, and: 15)
+            .foregroundColor: UIColor.black
         ]
     }
     

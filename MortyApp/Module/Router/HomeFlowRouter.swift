@@ -2,7 +2,7 @@
 //  HomeFlowRouter.swift
 //  MortyApp
 //
-//  Created by Eduardo Marquez on 19/09/23.
+//  Created by Nazareth Villalba on 19/09/23.
 //
 
 import UIKit
@@ -14,8 +14,14 @@ enum HomeFlowTransation {
     case showItemsCollection(infoResult: [Character], presenter: HomeFlowPresenterProtocol)
 }
 
+protocol HomeFlowRouterProtocol {
+    func performTransition(transition: HomeFlowTransation, onCompletion completion: RPCompletionBlock?)
+    func showItemsSearchDetail(item: Character)
+    func showItemsCollection(infoResult: [Character], presenter: HomeFlowPresenterProtocol)
+}
+
 // MARK: - Home Interactive Implementation
-class HomeFlowRouter {
+class HomeFlowRouter: HomeFlowRouterProtocol {
 
     // MARK: - Life Cycle
     private weak var baseController: UIViewController?
@@ -29,17 +35,15 @@ class HomeFlowRouter {
         switch transition {
         case .showItemsSearchDetail(let item):
             showItemsSearchDetail(item: item)
-            debugPrint("Tring to show Item search")
         case .showItemsCollection(let infoResult, let presenter):
             showItemsCollection(infoResult: infoResult, presenter: presenter)
-            debugPrint("Tring to show Collection")
         }
     }
 }
 
 extension HomeFlowRouter {
     func showItemsSearchDetail(item: Character) {
-        let viewController = DetailViewController2(result: item)
+        let viewController = DetailViewController(result: item)
         baseController?.navigationController?.pushViewController(viewController, animated: true)
     }
     

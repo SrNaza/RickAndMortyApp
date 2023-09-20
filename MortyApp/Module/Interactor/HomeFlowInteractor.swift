@@ -2,7 +2,7 @@
 //  HomeFlowInteractor.swift
 //  MortyApp
 //
-//  Created by Eduardo Marquez on 19/09/23.
+//  Created by Nazareth Villalba on 19/09/23.
 //
 
 import RxSwift
@@ -10,12 +10,13 @@ import RxCocoa
 import Alamofire
 import AlamofireObjectMapper
 
-enum MyCustomError: Error {
-    case networkError
+protocol HomeFlowInteractorProtocol {
+    func getCharacter(characterToSearch: String) -> Single<HomeCharacterSearch>
+    func getAllCharacterInfo() -> Single<HomeCharacterSearch>
 }
 
 // MARK: - Home Interactive Implementation
-class HomeFlowInteractor {
+class HomeFlowInteractor: HomeFlowInteractorProtocol {
 
     // MARK: - Life Cycle
     init() {}
@@ -30,14 +31,13 @@ class HomeFlowInteractor {
                     single(.success(result))
                 case .failure(let error):
                     single(.failure(error))
-                    print(error.errorDescription ?? "")
                 }
             }
             return Disposables.create()
         }
     }
     
-    func getAllCharacterInfol() -> Single<HomeCharacterSearch> {
+    func getAllCharacterInfo() -> Single<HomeCharacterSearch> {
         
         let url = Api().urlAllCharacters
         return Single<HomeCharacterSearch>.create { single in

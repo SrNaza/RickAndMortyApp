@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		06C34A0CF891C5564326AC22 /* Pods_MortyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD48042E37D328B6534F15CC /* Pods_MortyApp.framework */; };
 		9A39043A5218F3590D89FD40 /* Pods_MortyApp_MortyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B165AB3DBFB1BFCFCF0ACA7A /* Pods_MortyApp_MortyAppUITests.framework */; };
+		A09FE78E2ABA91DE00332656 /* MocksClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09FE78D2ABA91DE00332656 /* MocksClasses.swift */; };
+		A09FE7902ABA923100332656 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09FE78F2ABA923100332656 /* HomePresenterTests.swift */; };
 		A0DC4C692ABA09A100EDD4DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC4C682ABA09A100EDD4DB /* AppDelegate.swift */; };
 		A0DC4C6D2ABA09A100EDD4DB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC4C6C2ABA09A100EDD4DB /* HomeViewController.swift */; };
 		A0DC4C702ABA09A100EDD4DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0DC4C6E2ABA09A100EDD4DB /* Main.storyboard */; };
@@ -31,9 +33,7 @@
 		A0DC4CC12ABA30F500EDD4DB /* ListSectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DC4CBF2ABA30F500EDD4DB /* ListSectionViewController.xib */; };
 		A0DC4CC62ABA319600EDD4DB /* ListDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC4CC42ABA319600EDD4DB /* ListDetailCell.swift */; };
 		A0DC4CC72ABA319600EDD4DB /* ListDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DC4CC52ABA319600EDD4DB /* ListDetailCell.xib */; };
-		A0DC4CCB2ABA597400EDD4DB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC4CC92ABA597400EDD4DB /* DetailViewController.swift */; };
-		A0DC4CCC2ABA597400EDD4DB /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DC4CCA2ABA597400EDD4DB /* DetailViewController.xib */; };
-		A0DC4CCE2ABA5CA400EDD4DB /* TestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC4CCD2ABA5CA400EDD4DB /* TestDetailView.swift */; };
+		A0DC4CCE2ABA5CA400EDD4DB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC4CCD2ABA5CA400EDD4DB /* DetailViewController.swift */; };
 		E90A0A4A82B532FF67684AB5 /* Pods_MortyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 672FC9EA7194A85EC3E4D73D /* Pods_MortyAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +61,8 @@
 		672FC9EA7194A85EC3E4D73D /* Pods_MortyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MortyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74475BABF723E5A6F9B34BB2 /* Pods-MortyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MortyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MortyAppTests/Pods-MortyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D1FB87958B32918701A66BC /* Pods-MortyApp-MortyAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MortyApp-MortyAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-MortyApp-MortyAppUITests/Pods-MortyApp-MortyAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A09FE78D2ABA91DE00332656 /* MocksClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocksClasses.swift; sourceTree = "<group>"; };
+		A09FE78F2ABA923100332656 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
 		A0DC4C652ABA09A100EDD4DB /* MortyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MortyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DC4C682ABA09A100EDD4DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0DC4C6C2ABA09A100EDD4DB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -87,9 +89,7 @@
 		A0DC4CBF2ABA30F500EDD4DB /* ListSectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListSectionViewController.xib; sourceTree = "<group>"; };
 		A0DC4CC42ABA319600EDD4DB /* ListDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCell.swift; sourceTree = "<group>"; };
 		A0DC4CC52ABA319600EDD4DB /* ListDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListDetailCell.xib; sourceTree = "<group>"; };
-		A0DC4CC92ABA597400EDD4DB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		A0DC4CCA2ABA597400EDD4DB /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
-		A0DC4CCD2ABA5CA400EDD4DB /* TestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailView.swift; sourceTree = "<group>"; };
+		A0DC4CCD2ABA5CA400EDD4DB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A9BA3ECC051AAF649572A7E7 /* Pods-MortyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MortyApp.release.xcconfig"; path = "Target Support Files/Pods-MortyApp/Pods-MortyApp.release.xcconfig"; sourceTree = "<group>"; };
 		B165AB3DBFB1BFCFCF0ACA7A /* Pods_MortyApp_MortyAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MortyApp_MortyAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD48042E37D328B6534F15CC /* Pods_MortyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MortyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				A0DC4C7F2ABA09A200EDD4DB /* MortyAppTests.swift */,
+				A09FE78D2ABA91DE00332656 /* MocksClasses.swift */,
+				A09FE78F2ABA923100332656 /* HomePresenterTests.swift */,
 			);
 			path = MortyAppTests;
 			sourceTree = "<group>";
@@ -344,9 +346,7 @@
 		A0DC4CC82ABA592D00EDD4DB /* DetailSection */ = {
 			isa = PBXGroup;
 			children = (
-				A0DC4CC92ABA597400EDD4DB /* DetailViewController.swift */,
-				A0DC4CCA2ABA597400EDD4DB /* DetailViewController.xib */,
-				A0DC4CCD2ABA5CA400EDD4DB /* TestDetailView.swift */,
+				A0DC4CCD2ABA5CA400EDD4DB /* DetailViewController.swift */,
 			);
 			path = DetailSection;
 			sourceTree = "<group>";
@@ -462,7 +462,6 @@
 			files = (
 				A0DC4C752ABA09A200EDD4DB /* LaunchScreen.storyboard in Resources */,
 				A0DC4C722ABA09A200EDD4DB /* Assets.xcassets in Resources */,
-				A0DC4CCC2ABA597400EDD4DB /* DetailViewController.xib in Resources */,
 				A0DC4C702ABA09A100EDD4DB /* Main.storyboard in Resources */,
 				A0DC4CC12ABA30F500EDD4DB /* ListSectionViewController.xib in Resources */,
 				A0DC4CC72ABA319600EDD4DB /* ListDetailCell.xib in Resources */,
@@ -595,7 +594,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0DC4CC62ABA319600EDD4DB /* ListDetailCell.swift in Sources */,
-				A0DC4CCE2ABA5CA400EDD4DB /* TestDetailView.swift in Sources */,
+				A0DC4CCE2ABA5CA400EDD4DB /* DetailViewController.swift in Sources */,
 				A0DC4CAB2ABA2B8800EDD4DB /* Extensions.swift in Sources */,
 				A0DC4C6D2ABA09A100EDD4DB /* HomeViewController.swift in Sources */,
 				A0DC4CC02ABA30F500EDD4DB /* ListSectionViewController.swift in Sources */,
@@ -608,7 +607,6 @@
 				A0DC4CAE2ABA2BC300EDD4DB /* NetworkingServices.swift in Sources */,
 				A0DC4CB02ABA2C8800EDD4DB /* HomeFlowPresenterProtocol.swift in Sources */,
 				A0DC4CB62ABA2CCE00EDD4DB /* HomeFlowRouter.swift in Sources */,
-				A0DC4CCB2ABA597400EDD4DB /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,7 +614,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A09FE78E2ABA91DE00332656 /* MocksClasses.swift in Sources */,
 				A0DC4C802ABA09A200EDD4DB /* MortyAppTests.swift in Sources */,
+				A09FE7902ABA923100332656 /* HomePresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

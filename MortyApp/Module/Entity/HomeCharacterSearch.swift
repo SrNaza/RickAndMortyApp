@@ -2,7 +2,7 @@
 //  HomeCharacterSearch.swift
 //  MortyApp
 //
-//  Created by Eduardo Marquez on 19/09/23.
+//  Created by Nazareth Villalba on 19/09/23.
 //
 
 import Foundation
@@ -34,19 +34,19 @@ struct Character: Codable {
     let created: String
     
     init() {
-            self.id = 0
-            self.name = ""
-            self.status = ""
-            self.species = ""
-            self.type = ""
-            self.gender = ""
-            self.origin = Location(name: "", url: "")
-            self.location = Location(name: "", url: "")
-            self.image = ""
-            self.episode = []
-            self.url = ""
-            self.created = ""
-        }
+        self.id = 0
+        self.name = ""
+        self.status = ""
+        self.species = ""
+        self.type = ""
+        self.gender = ""
+        self.origin = Location(name: "", url: "")
+        self.location = Location(name: "", url: "")
+        self.image = ""
+        self.episode = []
+        self.url = ""
+        self.created = ""
+    }
 }
 
 struct Location: Codable {

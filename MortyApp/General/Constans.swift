@@ -2,56 +2,10 @@
 //  Constans.swift
 //  MortyApp
 //
-//  Created by Eduardo Marquez on 19/09/23.
+//  Created by Nazareth Villalba on 19/09/23.
 //
 
 import UIKit
-
-// MARK: - Fonts
-enum FontTypes {
-    case bold
-    case light
-    case medium
-    case regular
-    case semibold
-    case thin
-}
-
-enum FontFamily {
-    case Sans
-    case Mono
-}
-
-func setFont(of type: FontTypes, family: FontFamily = .Sans, and size: CGFloat) -> UIFont {
-    var fontName = ""
-    
-    switch family {
-    case .Mono:
-        fontName = "IBMPlexMono"
-        break
-    case .Sans:
-        fontName = "IBMPlexSans"
-        break
-    }
-    
-    switch type {
-    case .bold:
-        fontName += "-Bold"
-    case .light:
-        fontName += "-Light"
-    case .medium:
-        fontName += "-Medium"
-    case .regular:
-        fontName += ""
-    case .semibold:
-        fontName += "-SemiBold"
-    case .thin:
-        fontName += "-Thin"
-    }
-    
-    let font = UIFont(name: fontName, size: size)!
-    return font
-}
 
 // MARK: - Images
 struct Images {

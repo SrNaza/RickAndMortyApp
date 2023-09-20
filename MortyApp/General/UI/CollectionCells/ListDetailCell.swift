@@ -2,7 +2,7 @@
 //  ListDetailCell.swift
 //  MortyApp
 //
-//  Created by Eduardo Marquez on 19/09/23.
+//  Created by Nazareth Villalba on 19/09/23.
 //
 
 import UIKit
@@ -10,6 +10,7 @@ import SDWebImage
 
 class ListDetailCell: UICollectionViewCell {
 
+    @IBOutlet weak var vista: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var speciesLabel: UILabel!
@@ -20,26 +21,23 @@ class ListDetailCell: UICollectionViewCell {
     }
 
     func setupComponent() {
-//        nameLabel.font = setFont(of: .semibold, family: .Sans, and: 12) todo nz
+        vista.layer.cornerRadius = 20
+        vista.layer.masksToBounds = true
         nameLabel.textColor = .black
-        
-//        typeLabel.font = setFont(of: .bold, family: .Sans, and: 15)
-        speciesLabel.textColor = .black
-        
-        
         nameLabel.text = ""
+        speciesLabel.textColor = .black
         speciesLabel.text = ""
     }
     
     func setupCell(item: Character) {
         nameLabel.text = item.name
         speciesLabel.text = String("Species: \(item.species)")
-           
-//        shippingLabel.text = item.shipping.freeShipping ? "Envio Gratis" : item.condition
-//        shippingLabel.textColor = item.shipping.freeShipping ? .red : .black
         
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 20
         donwloadImage(imageView: self.imageView, urlString: item.image)
+        
     }
 }
 

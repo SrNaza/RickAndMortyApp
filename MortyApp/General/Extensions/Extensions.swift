@@ -2,7 +2,7 @@
 //  Extensions.swift
 //  MortyApp
 //
-//  Created by Eduardo Marquez on 19/09/23.
+//  Created by Nazareth Villalba on 19/09/23.
 //
 
 import UIKit
@@ -85,9 +85,7 @@ extension UIViewController {
 
 extension UITextField{
     func setPlaceHolderColor() {
-        self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray,
-//                                                                                                NSAttributedString.Key.font: setFont(of: .semibold, family: .Sans, and: 12)  TODO
-                                                                                               ])
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
     }
 }
 
@@ -107,26 +105,3 @@ extension UIImageView {
         })
     }
 }
-
-import Foundation
-
-@objc public protocol Then {}
-extension Then {
-
-    /// Makes it available to set properties with closures just after initializing.
-    ///
-    ///     let label = UILabel().then {
-    ///         $0.textAlignment = .Center
-    ///         $0.textColor = UIColor.blackColor()
-    ///         $0.text = "Hello, World!"
-    ///     }
-    @discardableResult
-    public func then(_ block: (Self) -> Void) -> Self {
-        block(self)
-        return self
-    }
-
-}
-
-extension NSObject: Then {}
-

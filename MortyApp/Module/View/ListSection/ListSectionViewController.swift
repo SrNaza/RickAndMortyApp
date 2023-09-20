@@ -2,14 +2,14 @@
 //  ListSectionViewController.swift
 //  MortyApp
 //
-//  Created by Eduardo Marquez on 19/09/23.
+//  Created by Nazareth Villalba on 19/09/23.
 //
 
 import UIKit
 
 class ListSectionViewController: UIViewController {
     
-    @IBOutlet private var collection: UICollectionView!
+    @IBOutlet var collection: UICollectionView!
     
     private var result: [Character] = []
     private var presenter: HomeFlowPresenterProtocol
@@ -58,7 +58,6 @@ extension ListSectionViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter.handleAction(.showDetail(item: result[indexPath.row]))
-        debugPrint("Tapping on the cell")
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

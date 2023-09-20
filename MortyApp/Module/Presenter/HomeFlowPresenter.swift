@@ -2,7 +2,7 @@
 //  HomeFlowPresenter.swift
 //  MortyApp
 //
-//  Created by Eduardo Marquez on 19/09/23.
+//  Created by Nazareth Villalba on 19/09/23.
 //
 
 import Foundation
@@ -14,13 +14,13 @@ public typealias RPCompletionBlock = () -> Void
 
 class HomeFlowPresenter {
     // MARK: - Properties
-    private let interactor: HomeFlowInteractor
-    private let router: HomeFlowRouter
+    private let interactor: HomeFlowInteractorProtocol
+    private let router: HomeFlowRouterProtocol
     private let disposeBag = DisposeBag()
     
 
     // MARK: - Life Cycle
-    required init(interactor: HomeFlowInteractor, router: HomeFlowRouter) {
+    required init(interactor: HomeFlowInteractorProtocol, router: HomeFlowRouterProtocol) {
         self.interactor = interactor
         self.router = router
     }
@@ -38,7 +38,7 @@ extension HomeFlowPresenter: HomeFlowPresenterProtocol {
     }
     
     func getAllCharacterInfo() -> Observable<HomeCharacterSearch> {
-        return interactor.getAllCharacterInfol()
+        return interactor.getAllCharacterInfo()
             .asObservable()
     }
     

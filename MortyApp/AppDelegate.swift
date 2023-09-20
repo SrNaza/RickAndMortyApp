@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MortyApp
 //
-//  Created by Eduardo Marquez on 19/09/23.
+//  Created by Nazareth Villalba on 19/09/23.
 //
 
 import UIKit
@@ -32,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Private methods
-    
     private func setupView() {
         window = UIWindow(frame: UIScreen.main.bounds)
         let vc = HomeViewController()
@@ -41,5 +40,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
     }
 }
-
-
